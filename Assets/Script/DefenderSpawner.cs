@@ -7,9 +7,12 @@ public class DefenderSpawner : MonoBehaviour {
 
 	private GameObject defenderParent;
 
+	private StarDisplay starDisplay;
+
 	// Use this for initialization
 	void Start () {
 		defenderParent = GameObject.Find ("Defenders");
+		starDisplay = GameObject.FindObjectOfType<StarDisplay> ();
 
 		if (!defenderParent) {
 			defenderParent = new GameObject();
@@ -30,12 +33,24 @@ public class DefenderSpawner : MonoBehaviour {
 	}
 
 	void OnMouseDown() { // Finger Clicked
+
+		GameObject defender = Button.selectedDefender;
+		int defenderCost = defender.GetComponent<Defender> ().starCost;
+
+		if (starDisplay.UseStars (defenderCost) == StarDisplay.Status.SUCCESS) {
+			SpawnDefender ();
+		} else {
+			Debug.Log ("Not enough suns");
+		}
+
+	}
+
+	void SpawnDefender(){
 		Vector2 rawPos = CalculateWorldPointOfMouseClick();
 		Vector2 roundedPos = SnapToGrid(rawPos);
 		Quaternion zeroRot = Quaternion.identity;
 		GameObject defender = Instantiate (Button.selectedDefender, roundedPos, zeroRot) as GameObject;
 		defender.transform.parent = defenderParent.transform;
-
 	}
 
 	Vector2 CalculateWorldPointOfMouseClick(){

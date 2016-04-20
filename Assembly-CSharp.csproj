@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{9778B948-5F66-51B8-1A1B-92D98A42F29D}</ProjectGuid>
+    <ProjectGuid>{FBD1BE1A-6A95-58BC-4D9B-E5C4C3DE23C8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -51,9 +51,11 @@
      <Compile Include="Assets\Script\DefenderSpawner.cs" />
      <Compile Include="Assets\Script\FadeIn.cs" />
      <Compile Include="Assets\Script\Fox.cs" />
+     <Compile Include="Assets\Script\GameTimer.cs" />
      <Compile Include="Assets\Script\Health.cs" />
      <Compile Include="Assets\Script\LevelManager.cs" />
      <Compile Include="Assets\Script\Lizard.cs" />
+     <Compile Include="Assets\Script\LoseCollider.cs" />
      <Compile Include="Assets\Script\MusicManager.cs" />
      <Compile Include="Assets\Script\OptionsController.cs" />
      <Compile Include="Assets\Script\PlayerPrefsManager.cs" />
@@ -64,11 +66,11 @@
      <Compile Include="Assets\Script\Spawner.cs" />
      <Compile Include="Assets\Script\StarDisplay.cs" />
      <Compile Include="Assets\Script\Stone.cs" />
- <Reference Include="UnityEngine.Networking">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
