@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{FBD1BE1A-6A95-58BC-4D9B-E5C4C3DE23C8}</ProjectGuid>
+    <ProjectGuid>{835836C5-FDA1-E21A-9056-470D5971A99C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -45,6 +45,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Her.cs" />
+     <Compile Include="Assets\MoveController.cs" />
+     <Compile Include="Assets\Player.cs" />
      <Compile Include="Assets\Script\Attacker.cs" />
      <Compile Include="Assets\Script\Button.cs" />
      <Compile Include="Assets\Script\Defender.cs" />
@@ -53,24 +56,23 @@
      <Compile Include="Assets\Script\Fox.cs" />
      <Compile Include="Assets\Script\GameTimer.cs" />
      <Compile Include="Assets\Script\Health.cs" />
+     <Compile Include="Assets\Script\InitGame.cs" />
      <Compile Include="Assets\Script\LevelManager.cs" />
      <Compile Include="Assets\Script\Lizard.cs" />
-     <Compile Include="Assets\Script\LoseCollider.cs" />
      <Compile Include="Assets\Script\MusicManager.cs" />
      <Compile Include="Assets\Script\OptionsController.cs" />
      <Compile Include="Assets\Script\PlayerPrefsManager.cs" />
      <Compile Include="Assets\Script\Porjectile.cs" />
-     <Compile Include="Assets\Script\SetStartVolume.cs" />
      <Compile Include="Assets\Script\Shooter.cs" />
      <Compile Include="Assets\Script\Shredder.cs" />
      <Compile Include="Assets\Script\Spawner.cs" />
      <Compile Include="Assets\Script\StarDisplay.cs" />
      <Compile Include="Assets\Script\Stone.cs" />
- <Reference Include="UnityEngine.UI">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UI">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

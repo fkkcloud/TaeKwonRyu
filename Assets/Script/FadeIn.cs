@@ -7,11 +7,14 @@ public class FadeIn : MonoBehaviour {
 	public float FadeInDuration;
 
 	private Image _fade_panel;
-	private Color _current_color = Color.black;
+	private Color _current_color = Color.white;
 
 	// Use this for initialization
 	void Start () {
 		_fade_panel = GetComponent<Image> ();
+
+		_current_color.a = 1f;
+		_fade_panel.color = _current_color;
 	}
 	
 	// Update is called once per frame

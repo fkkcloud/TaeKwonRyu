@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{28127C71-3509-5327-8626-E0A78794CA39}") = "tkr", "Assembly-CSharp.csproj", "{835836C5-FDA1-E21A-9056-470D5971A99C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{835836C5-FDA1-E21A-9056-470D5971A99C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{835836C5-FDA1-E21A-9056-470D5971A99C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{835836C5-FDA1-E21A-9056-470D5971A99C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{835836C5-FDA1-E21A-9056-470D5971A99C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal

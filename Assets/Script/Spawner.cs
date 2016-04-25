@@ -5,9 +5,11 @@ public class Spawner : MonoBehaviour {
 
 	public GameObject[] attackerPrefabArray;
 
+	private GameObject _coreWorld;
+
 	// Use this for initialization
 	void Start () {
-	
+		_coreWorld = GameObject.Find ("CoreWorld");
 	}
 	
 	// Update is called once per frame
@@ -21,7 +23,7 @@ public class Spawner : MonoBehaviour {
 
 	void Spawn(GameObject attackerGameObj){
 		GameObject myAttacker = Instantiate (attackerGameObj) as GameObject;
-		myAttacker.transform.parent = transform;
+		myAttacker.transform.parent = _coreWorld.transform;
 		myAttacker.transform.position = transform.position;
 	}
 

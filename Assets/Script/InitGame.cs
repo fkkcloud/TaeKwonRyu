@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SetStartVolume : MonoBehaviour {
+public class InitGame : MonoBehaviour {
 
 	private MusicManager _musicManager;
 

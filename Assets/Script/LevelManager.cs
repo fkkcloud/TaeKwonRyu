@@ -15,7 +15,7 @@ public class LevelManager : MonoBehaviour {
 
 	public void LoadLevel(string name){
 		Debug.Log ("New Level load: " + name);
-		Application.LoadLevel (name);
+		//Application.LoadLevel (name);
 	}
 
 	public void QuitRequest(){
@@ -24,7 +24,7 @@ public class LevelManager : MonoBehaviour {
 	}
 
 	public void LoadNextLevel(){
-		Application.LoadLevel (Application.loadedLevel + 1);
+		//Application.LoadLevel (Application.loadedLevel + 1);
 	}
 
 }
