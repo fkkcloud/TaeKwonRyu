@@ -45,20 +45,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Her.cs" />
-     <Compile Include="Assets\MoveController.cs" />
-     <Compile Include="Assets\Player.cs" />
-     <Compile Include="Assets\Script\Attacker.cs" />
      <Compile Include="Assets\Script\Button.cs" />
+     <Compile Include="Assets\Script\Character\Her.cs" />
+     <Compile Include="Assets\Script\Character\Player.cs" />
      <Compile Include="Assets\Script\Defender.cs" />
      <Compile Include="Assets\Script\DefenderSpawner.cs" />
+     <Compile Include="Assets\Script\Enemy\Attacker.cs" />
+     <Compile Include="Assets\Script\Enemy\Fox.cs" />
+     <Compile Include="Assets\Script\Enemy\Lizard.cs" />
      <Compile Include="Assets\Script\FadeIn.cs" />
-     <Compile Include="Assets\Script\Fox.cs" />
      <Compile Include="Assets\Script\GameTimer.cs" />
      <Compile Include="Assets\Script\Health.cs" />
      <Compile Include="Assets\Script\InitGame.cs" />
      <Compile Include="Assets\Script\LevelManager.cs" />
-     <Compile Include="Assets\Script\Lizard.cs" />
+     <Compile Include="Assets\Script\MoveController.cs" />
      <Compile Include="Assets\Script\MusicManager.cs" />
      <Compile Include="Assets\Script\OptionsController.cs" />
      <Compile Include="Assets\Script\PlayerPrefsManager.cs" />
