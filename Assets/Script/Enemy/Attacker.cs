@@ -18,13 +18,17 @@ public class Attacker : MonoBehaviour {
 	private float _walkSpeed;
 	private float _moveEndTime;
 
-	private Vector3 _moveDir;
+	private Vector3 _moveDir = new Vector3(1.0f, 0.0f, 0.0f);
 
 	private Animator _animator;
 	private SpriteRenderer _spriteRenderer;
 
 	private GameObject _currentTarget;
 	private GameObject _her;
+
+	public float GetMovingDirection(){
+		return _moveDir.x;
+	}
 
 	// Use this for initialization
 	void Start () {

@@ -9,8 +9,12 @@ public class Player : MonoBehaviour {
 
 	// Privates
 	private float _moveEndTime;
-	private Vector3 _playerMoveDir;
+	private Vector3 _playerMoveDir = new Vector3(1.0f, 0.0f, 0.0f);
 	private SpriteRenderer _spriteRenderer;
+
+	public float GetMovingDirection(){
+		return _playerMoveDir.x;
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -44,5 +48,22 @@ public class Player : MonoBehaviour {
 			_playerMoveDir = Vector3.left;
 			_spriteRenderer.flipX = false;
 		}
+	}
+
+	void OnTriggerStay2D(Collider2D col){
+
+		GameObject obj = col.gameObject;
+
+		if (obj.GetComponent<Attacker> ()) 
+		{
+			// set direction
+			Attacker attacker = obj.GetComponent<Attacker> ();
+			if (_playerMoveDir.x == attacker.GetMovingDirection ()) {
+				_spriteRenderer.flipX = !_spriteRenderer.flipX;
+				_playerMoveDir.x = _playerMoveDir.x * -1; // update the actual moving dir too
+			}
+			// trigger attack animation
+		}
+
 	}
 }
