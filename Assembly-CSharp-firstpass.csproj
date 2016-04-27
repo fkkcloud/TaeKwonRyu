@@ -6,10 +6,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{835836C5-FDA1-E21A-9056-470D5971A99C}</ProjectGuid>
+    <ProjectGuid>{32245715-F26D-B8A1-92DE-0DC675A6A791}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>Assets</BaseDirectory>
@@ -45,40 +45,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Movement.cs" />
-     <Compile Include="Assets\Script\Button.cs" />
-     <Compile Include="Assets\Script\Character\Her.cs" />
-     <Compile Include="Assets\Script\Character\Player.cs" />
-     <Compile Include="Assets\Script\Defender.cs" />
-     <Compile Include="Assets\Script\DefenderSpawner.cs" />
-     <Compile Include="Assets\Script\Enemy\Attacker.cs" />
-     <Compile Include="Assets\Script\Enemy\Fox.cs" />
-     <Compile Include="Assets\Script\Enemy\Lizard.cs" />
-     <Compile Include="Assets\Script\FadeIn.cs" />
-     <Compile Include="Assets\Script\GameTimer.cs" />
-     <Compile Include="Assets\Script\Health.cs" />
-     <Compile Include="Assets\Script\InitGame.cs" />
-     <Compile Include="Assets\Script\LevelManager.cs" />
-     <Compile Include="Assets\Script\MoveController.cs" />
-     <Compile Include="Assets\Script\MusicManager.cs" />
-     <Compile Include="Assets\Script\OptionsController.cs" />
-     <Compile Include="Assets\Script\PlayerPrefsManager.cs" />
-     <Compile Include="Assets\Script\Porjectile.cs" />
-     <Compile Include="Assets\Script\Shooter.cs" />
-     <Compile Include="Assets\Script\Shredder.cs" />
-     <Compile Include="Assets\Script\Spawner.cs" />
-     <Compile Include="Assets\Script\StarDisplay.cs" />
-     <Compile Include="Assets\Script\Stone.cs" />
+     <Compile Include="Assets\Plugins\ILeanTween.cs" />
+     <Compile Include="Assets\Plugins\LTDescr.cs" />
+     <Compile Include="Assets\Plugins\LeanAudio.cs" />
+     <Compile Include="Assets\Plugins\LeanTest.cs" />
+     <Compile Include="Assets\Plugins\LeanTween.cs" />
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{32245715-F26D-B8A1-92DE-0DC675A6A791}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

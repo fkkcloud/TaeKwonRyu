@@ -5,13 +5,12 @@ using System.Collections;
 public class MoveController : MonoBehaviour {
 
 
-	public bool IsMovingLeft;
+	public MOVE side;
 
 	private float _fadeInDuration;
 	private float _fadeInDelta = 0.25f;
 
 	private GameObject _player;
-	private float _dir;
 
 	private Image _panel;
 	private Color _current_color = Color.blue;
@@ -20,10 +19,6 @@ public class MoveController : MonoBehaviour {
 	void Start () {
 
 		_player = GameObject.Find ("Player");
-
-		_dir = -1f;
-		if (!IsMovingLeft)
-			_dir = 1f;
 
 		_panel = GetComponent<Image> ();
 
@@ -45,7 +40,7 @@ public class MoveController : MonoBehaviour {
 
 		Player playerComp = _player.GetComponent<Player> ();
 		if (playerComp) {
-			playerComp.SetDirection(_dir);
+			playerComp.SetDirection(side);
 			playerComp.TriggerMove ();
 
 			_current_color.a = 1f;
