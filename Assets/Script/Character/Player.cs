@@ -14,6 +14,8 @@ public class Player : MonoBehaviour {
 	private Vector3 _playerMoveDir = new Vector3(1.0f, 0.0f, 0.0f);
 	private SpriteRenderer _spriteRenderer;
 
+	private Animator _anim;
+
 	public float GetMovingDirection(){
 		return _playerMoveDir.x;
 	}
@@ -23,6 +25,7 @@ public class Player : MonoBehaviour {
 	
 		_spriteRenderer = GetComponentInChildren<SpriteRenderer> ();
 
+		_anim = GetComponent<Animator> ();
 	}
 	
 	// Update is called once per frame
@@ -35,6 +38,8 @@ public class Player : MonoBehaviour {
 		float duration = 0.125f;
 		Vector3 targetPos = transform.position + _playerMoveDir * speed;
 		LeanTween.move(gameObject, targetPos, duration).setEase(LeanTweenType.easeInOutCubic);
+
+		//_anim.SetTrigger("TriggerMove");
 
 	}
 
@@ -50,6 +55,25 @@ public class Player : MonoBehaviour {
 		}
 	}
 
+	void OnTriggerEnter2D(Collider2D col){
+
+		GameObject obj = col.gameObject;
+
+		if (obj.GetComponent<Attacker> ()) 
+		{
+			// set direction
+			Attacker attacker = obj.GetComponent<Attacker> ();
+			if (side == attacker.side) {
+				_spriteRenderer.flipX = !_spriteRenderer.flipX;
+				_playerMoveDir.x = _playerMoveDir.x * -1; // update the actual moving dir too
+			}
+
+			// trigger attack animation
+			_anim.SetTrigger("TriggerAttack");
+		}
+	}
+		
+	/*
 	void OnTriggerStay2D(Collider2D col){
 
 		GameObject obj = col.gameObject;
@@ -59,12 +83,13 @@ public class Player : MonoBehaviour {
 			// set direction
 			Attacker attacker = obj.GetComponent<Attacker> ();
 			if (side == attacker.side) {
-				Debug.Log ("flipping sprite");
 				_spriteRenderer.flipX = !_spriteRenderer.flipX;
 				_playerMoveDir.x = _playerMoveDir.x * -1; // update the actual moving dir too
 			}
+
 			// trigger attack animation
+			//_anim.SetTrigger("TriggerAttack");
 		}
 
-	}
+	}*/
 }

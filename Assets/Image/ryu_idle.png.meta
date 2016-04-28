@@ -1,0 +1,148 @@
+fileFormatVersion: 2
+guid: d974e35bb68d948b88eaf65178402e04
+timeCreated: 1461815417
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: ryu_idle_0
+    21300002: ryu_idle_1
+    21300004: ryu_idle_2
+    21300006: ryu_idle_3
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 72
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: ryu_idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 35
+        height: 44
+      alignment: 9
+      pivot: {x: 0.625, y: 0.49999997}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4.125, y: 22.000002}
+        - {x: -17.875, y: 22.000002}
+        - {x: -20.875, y: 17.000002}
+        - {x: -20.875, y: -1.9999981}
+        - {x: -14.875, y: -5.999998}
+        - {x: -11.875, y: -4.999998}
+        - {x: -11.875, y: 1.0000019}
+        - {x: -9.875, y: -3.999998}
+        - {x: -12.875, y: -5.999998}
+        - {x: -20.875, y: -11.999998}
+        - {x: -20.875, y: -17.999998}
+        - {x: -15.875, y: -21.999998}
+        - {x: 13.125, y: -21.999998}
+        - {x: 13.125, y: 5.000002}
+        - {x: 9.125, y: 16.000002}
+    - name: ryu_idle_1
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 0
+        width: 35
+        height: 44
+      alignment: 9
+      pivot: {x: 0.625, y: 0.49999997}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.875, y: 22.000002}
+        - {x: -20.875, y: -7.999998}
+        - {x: -14.875, y: -21.999998}
+        - {x: 13.125, y: -21.999998}
+        - {x: 13.125, y: 11.000002}
+        - {x: 4.125, y: 22.000002}
+    - name: ryu_idle_2
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 0
+        width: 35
+        height: 44
+      alignment: 9
+      pivot: {x: 0.625, y: 0.49999997}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4.125, y: 22.000002}
+        - {x: -17.875, y: 22.000002}
+        - {x: -20.875, y: 17.000002}
+        - {x: -20.875, y: -1.9999981}
+        - {x: -14.875, y: -5.999998}
+        - {x: -11.875, y: -4.999998}
+        - {x: -11.875, y: 1.0000019}
+        - {x: -8.875, y: -6.999998}
+        - {x: -13.875, y: -10.999998}
+        - {x: -14.875, y: -13.999998}
+        - {x: -14.875, y: -21.999998}
+        - {x: 13.125, y: -21.999998}
+        - {x: 13.125, y: 6.000002}
+        - {x: 8.125, y: 15.000002}
+    - name: ryu_idle_3
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 0
+        width: 35
+        height: 44
+      alignment: 9
+      pivot: {x: 0.625, y: 0.49999997}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5.125, y: 22.000002}
+        - {x: -19.875, y: 22.000002}
+        - {x: -21.875, y: 20.000002}
+        - {x: -21.875, y: -7.999998}
+        - {x: -14.875, y: -21.999998}
+        - {x: 13.125, y: -21.999998}
+        - {x: 13.125, y: 5.000002}
+        - {x: 8.125, y: 16.000002}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

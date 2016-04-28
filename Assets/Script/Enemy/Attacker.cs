@@ -31,6 +31,8 @@ public class Attacker : MonoBehaviour {
 	private Animator _animator;
 	private SpriteRenderer _spriteRenderer;
 
+	private Health _health;
+
 	private GameObject _currentTarget;
 	private GameObject _her;
 
@@ -39,11 +41,13 @@ public class Attacker : MonoBehaviour {
 		Rigidbody2D myRigidBody2D = gameObject.AddComponent<Rigidbody2D> ();
 		myRigidBody2D.isKinematic = true;
 
-		_animator = gameObject.GetComponent<Animator> ();
+		_animator = GetComponent<Animator> ();
 
 		_her = GameObject.Find ("Her");
 
 		_spriteRenderer = GetComponentInChildren<SpriteRenderer> ();
+
+		_health = GetComponent<Health> ();
 	}
 	
 	// Update is called once per frame
@@ -118,9 +122,8 @@ public class Attacker : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col){
 		
-		GameObject obj = col.gameObject;
+		//GameObject obj = col.gameObject;
 
-		//Debug.Log (name + " Collided with " + col);
 	}
 
 	void TriggerPush(GameObject pusher) {
@@ -135,6 +138,12 @@ public class Attacker : MonoBehaviour {
 		_moveEndTime = Time.timeSinceLevelLoad + 0.1f;
 
 		_IsMoving = false;
+
+		_health.DealDamage (20.0f);
+
+		Color c = Color.red;
+		c.a = 0.7f;
+		LeanTween.color(_spriteRenderer.gameObject, c, 0.1f).setEase(LeanTweenType.easeInOutCubic).setLoopPingPong(1);
 	}
 
 

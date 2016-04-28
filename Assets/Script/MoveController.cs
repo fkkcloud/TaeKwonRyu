@@ -13,7 +13,7 @@ public class MoveController : MonoBehaviour {
 	private GameObject _player;
 
 	private Image _panel;
-	private Color _current_color = Color.blue;
+	private Color _current_color;
 
 	// Use this for initialization
 	void Start () {
@@ -22,8 +22,8 @@ public class MoveController : MonoBehaviour {
 
 		_panel = GetComponent<Image> ();
 
+		_current_color = _panel.color;
 		_current_color.a = 0f;
-		_panel.color = _current_color;
 	}
 	
 	// Update is called once per frame
