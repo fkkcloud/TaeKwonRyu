@@ -1,30 +1,8 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Enemy/Attacker.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/LevelManager.cs">
     <Files>
-      <File FileName="Assets/Script/Character/Player.cs" Line="70" Column="4" />
-      <File FileName="Assets/Movement.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/MusicManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/Enemy/Attacker.cs" Line="62" Column="26" />
-      <File FileName="Assets/Script/MoveController.cs" Line="26" Column="23" />
-      <File FileName="Assets/Script/Character/Her.cs" Line="14" Column="3" />
-      <File FileName="Assets/Script/GameTimer.cs" Line="54" Column="4" />
-      <File FileName="Assets/Script/Enemy/Fox.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/Enemy/Lizard.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/Button.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/Defender.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/DefenderSpawner.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/FadeIn.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/Health.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/LevelManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/OptionsController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/PlayerPrefsManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/Porjectile.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/Shooter.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/Shredder.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/Spawner.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/StarDisplay.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/Stone.cs" Line="21" Column="3" />
+      <File FileName="Assets/Script/LevelManager.cs" Line="15" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
