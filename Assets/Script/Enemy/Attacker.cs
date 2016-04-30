@@ -30,7 +30,6 @@ public class Attacker : MonoBehaviour {
 
 	private Animator _animator;
 	private SpriteRenderer _spriteRenderer;
-
 	private Health _health;
 
 	private GameObject _currentTarget;
@@ -141,8 +140,12 @@ public class Attacker : MonoBehaviour {
 
 		_health.DealDamage (20.0f);
 
+		TintAttacked ();
+	}
+
+	private void TintAttacked(){
 		Color c = Color.red;
-		c.a = 0.7f;
+		c.a = 0.9f;
 		LeanTween.color(_spriteRenderer.gameObject, c, 0.1f).setEase(LeanTweenType.easeInOutCubic).setLoopPingPong(1);
 	}
 
@@ -165,4 +168,5 @@ public class Attacker : MonoBehaviour {
 	public void Attack(GameObject obj){
 		_currentTarget = obj;
 	}
+
 }

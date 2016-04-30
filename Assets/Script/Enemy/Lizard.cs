@@ -22,10 +22,7 @@ public class Lizard : MonoBehaviour {
 
 		GameObject obj = col.gameObject;
 
-		// if its not defender, abort.
-		if (!obj.GetComponent<Defender> ()) {
-			return;
-		}
+		return;
 
 		if (anim) {
 			anim.SetBool ("IsAttacking", true);

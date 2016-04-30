@@ -4,26 +4,19 @@ using System.Collections;
 
 public class GameTimer : MonoBehaviour {
 
-	private Slider _slider;
 	private AudioSource _audioSource;
 	private LevelManager _levelManager;
 	private GameObject _labelWin;
-	private GameObject _progressBarBG;
-	private GameObject _progressBarGauge;
+	private Text _text;
 
 	public float levelSeconds;
-	private float _secondsLeft;
 	private bool _isEndOfLevel = false;
 
 	// Use this for initialization
 	void Start () {
-		_slider = GetComponent<Slider> ();
 		_audioSource = GetComponent<AudioSource> ();
-		_secondsLeft = levelSeconds;
 		_levelManager = GameObject.FindObjectOfType<LevelManager> ();
-		_progressBarBG = GameObject.FindGameObjectWithTag ("GameTimerBarBG");
-		_progressBarGauge = GameObject.FindGameObjectWithTag ("GameTimerBarGauge");
-		_progressBarGauge.transform.localScale = new Vector3 (0.0f, _progressBarGauge.transform.localScale.y, _progressBarGauge.transform.localScale.z);
+		_text = GetComponent<Text> ();
 
 		// Find Win
 		_labelWin = GameObject.Find ("Win");
@@ -35,17 +28,21 @@ public class GameTimer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-		_slider.value = Time.timeSinceLevelLoad / levelSeconds;
 
-		_progressBarGauge.transform.localScale = new Vector3 (Time.timeSinceLevelLoad / levelSeconds, _progressBarGauge.transform.localScale.y, _progressBarGauge.transform.localScale.z);
+		int secondLeft = Mathf.RoundToInt (levelSeconds - Time.timeSinceLevelLoad);
+		int minuteLeft = Mathf.RoundToInt( levelSeconds / 60f ) - 1;
 
-		bool timeIsUp = (Time.timeSinceLevelLoad >= levelSeconds);
+		int secondToDisply =  Mathf.RoundToInt (secondLeft % 60f);
+
+		_text.text = minuteLeft.ToString() + ":" + secondToDisply.ToString();
+
+		bool timeIsUp = (0 >= secondLeft);
+
 		if (timeIsUp && !_isEndOfLevel) {
-			_audioSource.Play ();
-			Invoke ("LoadNextLevel", _audioSource.clip.length);
-			_isEndOfLevel = true;
-			_labelWin.SetActive(true);
+			//_audioSource.Play ();
+			//Invoke ("LoadNextLevel", _audioSource.clip.length);
+			//_isEndOfLevel = true;
+			//_labelWin.SetActive(true);
 		}
 
 	}

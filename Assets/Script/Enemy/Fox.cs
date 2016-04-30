@@ -22,17 +22,14 @@ public class Fox : MonoBehaviour {
 
 		GameObject obj = col.gameObject;
 
-		// if its not defender, abort.
-		if (!obj.GetComponent<Defender> ()) {
-			return;
-		}
+		return;
 
-		if (obj.GetComponent<Stone> () && anim) {
-			anim.SetTrigger ("TriggerJump");
-		} else {
+		if (anim) {
 			anim.SetBool ("IsAttacking", true);
 			attacker.Attack (obj);
+
 		}
+
 
 		Debug.Log (name + " Collided with " + col);
 	}

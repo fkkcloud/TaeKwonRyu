@@ -45,11 +45,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Script\Button.cs" />
+     <Compile Include="Assets\LimitBreak.cs" />
+     <Compile Include="Assets\ParticleComp.cs" />
      <Compile Include="Assets\Script\Character\Her.cs" />
      <Compile Include="Assets\Script\Character\Player.cs" />
-     <Compile Include="Assets\Script\Defender.cs" />
-     <Compile Include="Assets\Script\DefenderSpawner.cs" />
      <Compile Include="Assets\Script\Enemy\Attacker.cs" />
      <Compile Include="Assets\Script\Enemy\Fox.cs" />
      <Compile Include="Assets\Script\Enemy\Lizard.cs" />
@@ -63,12 +62,10 @@
      <Compile Include="Assets\Script\MusicManager.cs" />
      <Compile Include="Assets\Script\OptionsController.cs" />
      <Compile Include="Assets\Script\PlayerPrefsManager.cs" />
-     <Compile Include="Assets\Script\Porjectile.cs" />
      <Compile Include="Assets\Script\Shooter.cs" />
      <Compile Include="Assets\Script\Shredder.cs" />
      <Compile Include="Assets\Script\Spawner.cs" />
      <Compile Include="Assets\Script\StarDisplay.cs" />
-     <Compile Include="Assets\Script\Stone.cs" />
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
