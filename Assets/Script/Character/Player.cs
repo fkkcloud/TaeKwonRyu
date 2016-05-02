@@ -4,6 +4,8 @@ using System.Collections;
 public class Player : MonoBehaviour {
 
 	// Publics
+	public GameObject FX_Attack;
+
 	public MOVE side = MOVE.RIGHT;
 
 	[Tooltip ("How fast the player will move")]
@@ -12,30 +14,22 @@ public class Player : MonoBehaviour {
 
 	[Tooltip ("Bound amount that player can not go through")]
 	[Range(0.5f, 5.0f)]
-	public float moveOffset = 2.5f;
+	public float moveOffset = 1.0f;
 
 	public bool IsLimitBreakReady = false;
 
-	public GameObject FX_Attack;
-
-	private GameObject _BG_Object;
-
-	private Sprite _BG_Sprite;
-
 	// Privates
-	//private float _moveEndTime;
-	private Vector3 _playerMoveDir = new Vector3(1.0f, 0.0f, 0.0f);
+	private GameObject _BG_Object;
 
 	private SpriteRenderer _spriteRenderer;
 	private Animator _anim;
 	private LimitBreak _limitBreak;
+	private Sprite _BG_Sprite;
+	private MainGame _mainGame;
 
+	private Vector3 _playerMoveDir = new Vector3(1.0f, 0.0f, 0.0f);
 	private float _minXMove;
 	private float _maxXMove;
-
-	public float GetMovingDirection(){
-		return _playerMoveDir.x;
-	}
 
 	// Use this for initialization
 	void Start () {
@@ -46,7 +40,9 @@ public class Player : MonoBehaviour {
 
 		_limitBreak = GameObject.FindGameObjectWithTag ("LimitBreak").GetComponent<LimitBreak>();
 
-		_BG_Object = GameObject.FindGameObjectWithTag ("BG");
+		_mainGame = GameObject.Find ("MainGame").GetComponent<MainGame> ();
+
+		_BG_Object = GameObject.FindGameObjectWithTag ("GameMapController");
 		_BG_Sprite = _BG_Object.GetComponent<SpriteRenderer> ().sprite;
 
 		_minXMove = _BG_Sprite.bounds.min.x * _BG_Object.transform.localScale.x + _BG_Object.transform.position.x + moveOffset;
@@ -55,9 +51,12 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
 	}
 
 	public void TriggerMove() {
+		if (_mainGame.IsGameEnd == true)
+			return;
 
 		float duration = 0.125f;
 		Vector3 targetPos = transform.position + _playerMoveDir * speed;
@@ -71,11 +70,10 @@ public class Player : MonoBehaviour {
 		return targetPos.x > _minXMove && targetPos.x < _maxXMove;
 	}
 
-	public float Remap (float value, float from1, float to1, float from2, float to2) {
-		return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
-	}
-
 	public void SetDirection(MOVE inSide) {
+		if (_mainGame.IsGameEnd == true)
+			return;
+		
 		if (inSide == MOVE.RIGHT) { // when user input is RIGHT
 			_playerMoveDir = Vector3.right;
 			_spriteRenderer.flipX = true;
@@ -88,6 +86,8 @@ public class Player : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D col){
+		if (_mainGame.IsGameEnd == true)
+			return;
 
 		GameObject obj = col.gameObject;
 
@@ -117,24 +117,4 @@ public class Player : MonoBehaviour {
 		fxAttack.transform.position = FXPos;
 		Destroy (fxAttack, 0.3f);
 	}
-		
-	/*
-	void OnTriggerStay2D(Collider2D col){
-
-		GameObject obj = col.gameObject;
-
-		if (obj.GetComponent<Attacker> ()) 
-		{
-			// set direction
-			Attacker attacker = obj.GetComponent<Attacker> ();
-			if (side == attacker.side) {
-				_spriteRenderer.flipX = !_spriteRenderer.flipX;
-				_playerMoveDir.x = _playerMoveDir.x * -1; // update the actual moving dir too
-			}
-
-			// trigger attack animation
-			//_anim.SetTrigger("TriggerAttack");
-		}
-
-	}*/
 }

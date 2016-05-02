@@ -46,19 +46,18 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\LimitBreak.cs" />
+     <Compile Include="Assets\MainGame.cs" />
      <Compile Include="Assets\ParticleComp.cs" />
+     <Compile Include="Assets\Script\CameraMovement.cs" />
      <Compile Include="Assets\Script\Character\Her.cs" />
      <Compile Include="Assets\Script\Character\Player.cs" />
      <Compile Include="Assets\Script\Enemy\Attacker.cs" />
-     <Compile Include="Assets\Script\Enemy\Fox.cs" />
-     <Compile Include="Assets\Script\Enemy\Lizard.cs" />
      <Compile Include="Assets\Script\FadeIn.cs" />
      <Compile Include="Assets\Script\GameTimer.cs" />
      <Compile Include="Assets\Script\Health.cs" />
      <Compile Include="Assets\Script\InitGame.cs" />
      <Compile Include="Assets\Script\LevelManager.cs" />
      <Compile Include="Assets\Script\MoveController.cs" />
-     <Compile Include="Assets\Script\Movement.cs" />
      <Compile Include="Assets\Script\MusicManager.cs" />
      <Compile Include="Assets\Script\OptionsController.cs" />
      <Compile Include="Assets\Script\PlayerPrefsManager.cs" />
@@ -66,6 +65,7 @@
      <Compile Include="Assets\Script\Shredder.cs" />
      <Compile Include="Assets\Script\Spawner.cs" />
      <Compile Include="Assets\Script\StarDisplay.cs" />
+     <Compile Include="Assets\WarningHUD.cs" />
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>

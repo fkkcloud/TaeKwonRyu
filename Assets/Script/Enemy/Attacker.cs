@@ -13,44 +13,51 @@ public class Attacker : MonoBehaviour {
 	// Publics
 	public MOVE side;
 
+	[Tooltip ("How much the attacker will be pushed")]
+	[Range(0.1f, 20.0f)] 
+	public float pushMult = 1.0f;
+
 	[Tooltip ("How fast the attacker will move")]
-	[Range(0.1f, 20.0f)] public float pushMult = 1.0f;
+	[Range(0.1f, 5.0f)] 
+	public float _walkSpeed = 1.2f;
 
 	[Tooltip ("Average Seconds between Appearances")]
 	public float seenEverySeconds;
 
 	// Privates
-	private bool _IsMoving = true;
-	private bool _IsCapturing = false;
+	private GameObject _currentTarget;
+	private GameObject _her;
 
-	private float _walkSpeed;
-	private float _moveEndTime;
-
-	private Vector3 _moveDir = new Vector3(1.0f, 0.0f, 0.0f);
-
-	private Animator _animator;
+	private MainGame _mainGame;
+	private Animator _anim;
 	private SpriteRenderer _spriteRenderer;
 	private Health _health;
 
-	private GameObject _currentTarget;
-	private GameObject _her;
+	private Vector3 _moveDir = new Vector3(1.0f, 0.0f, 0.0f);
+	private float _moveEndTime;
+	private bool _IsMoving = true;
+	private bool _IsCapturing = false;
 
 	// Use this for initialization
 	void Start () {
 		Rigidbody2D myRigidBody2D = gameObject.AddComponent<Rigidbody2D> ();
 		myRigidBody2D.isKinematic = true;
 
-		_animator = GetComponent<Animator> ();
+		_anim = GetComponent<Animator> ();
 
 		_her = GameObject.Find ("Her");
 
 		_spriteRenderer = GetComponentInChildren<SpriteRenderer> ();
 
 		_health = GetComponent<Health> ();
+
+		_mainGame = GameObject.Find ("MainGame").GetComponent<MainGame> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (_mainGame.IsGameEnd == true)
+			return;
 
 		// PUSHED
 		if (!_IsMoving && Time.timeSinceLevelLoad <= _moveEndTime) 
@@ -77,20 +84,15 @@ public class Attacker : MonoBehaviour {
 			if (IsOnRightSide) {
 				side = MOVE.LEFT;
 				_moveDir = Vector3.left;
-				_spriteRenderer.flipX = false;
+				_spriteRenderer.flipX = true;
 			} else {
 				side = MOVE.RIGHT;
 				_moveDir = Vector3.right;
-				_spriteRenderer.flipX = true;
+				_spriteRenderer.flipX = false;
 			}
 			
 			transform.Translate (_moveDir * _walkSpeed * Time.deltaTime);
 		}
-			
-		/*
-		if (!_currentTarget && _animator) {
-			_animator.SetBool ("IsAttacking", false);
-		}*/
 	}
 
 
@@ -106,6 +108,8 @@ public class Attacker : MonoBehaviour {
 
 
 	void OnTriggerStay2D(Collider2D col){
+		if (_mainGame.IsGameEnd == true)
+			return;
 
 		GameObject obj = col.gameObject;
 
@@ -117,12 +121,6 @@ public class Attacker : MonoBehaviour {
 		{
 			_IsCapturing = true;
 		}
-	}
-
-	void OnTriggerEnter2D(Collider2D col){
-		
-		//GameObject obj = col.gameObject;
-
 	}
 
 	void TriggerPush(GameObject pusher) {
@@ -141,6 +139,8 @@ public class Attacker : MonoBehaviour {
 		_health.DealDamage (20.0f);
 
 		TintAttacked ();
+
+		_anim.SetTrigger ("TriggerHit");
 	}
 
 	private void TintAttacked(){
@@ -148,25 +148,4 @@ public class Attacker : MonoBehaviour {
 		c.a = 0.9f;
 		LeanTween.color(_spriteRenderer.gameObject, c, 0.1f).setEase(LeanTweenType.easeInOutCubic).setLoopPingPong(1);
 	}
-
-
-	public void SetSpeed(float speed){
-		_walkSpeed = speed;
-	}
-
-	// Called at the time when actual attack happens in Animator (animation state!)
-	public void StrikeCurrentTarget(float damage){
-		Debug.Log (name + " damaged for " + damage);
-		if (_currentTarget) {
-			Health health = _currentTarget.GetComponent<Health> ();
-			if (health) {
-				health.DealDamage (damage);
-			}
-		}
-	}
-
-	public void Attack(GameObject obj){
-		_currentTarget = obj;
-	}
-
 }

@@ -7,13 +7,21 @@ public class Spawner : MonoBehaviour {
 
 	private GameObject _coreWorld;
 
+	private MainGame _mainGame;
+
 	// Use this for initialization
 	void Start () {
-		_coreWorld = GameObject.Find ("CoreWorld");
+		_coreWorld = GameObject.Find ("Attackers");
+
+		_mainGame = GameObject.Find ("MainGame").GetComponent<MainGame> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (_mainGame.IsGameEnd) {
+			return;
+		}
+
 		foreach (GameObject attacker in attackerPrefabArray) {
 			if (IsTimeToSpawn (attacker)) {
 				Spawn (attacker);
