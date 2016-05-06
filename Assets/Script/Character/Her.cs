@@ -19,7 +19,7 @@ public class Her : MonoBehaviour {
 		_playerObject = GameObject.Find ("Player");
 		_anim = GetComponent<Animator> ();
 		_warningObject = GameObject.Find ("WarningHUD").GetComponent<WarningHUD>();
-		_mainGame = GameObject.Find ("MainGame").GetComponent<MainGame> ();
+		_mainGame = GameObject.FindGameObjectWithTag ("MainGame").GetComponent<MainGame> ();
 
 		_originalWalkSpeed = walkSpeed;
 	}

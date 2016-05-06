@@ -21,6 +21,9 @@ public class Attacker : MonoBehaviour {
 	[Range(0.1f, 5.0f)] 
 	public float _walkSpeed = 1.2f;
 
+	[Tooltip ("Point of Soul")]
+	public int SoulPoint = 1;
+
 	[Tooltip ("Average Seconds between Appearances")]
 	public float seenEverySeconds;
 
@@ -31,10 +34,12 @@ public class Attacker : MonoBehaviour {
 	private MainGame _mainGame;
 	private Animator _anim;
 	private SpriteRenderer _spriteRenderer;
+	private SpriteRenderer _healthBar;
 	private Health _health;
 
 	private Vector3 _moveDir = new Vector3(1.0f, 0.0f, 0.0f);
 	private float _moveEndTime;
+	private float _maxHitPoint;
 	private bool _IsMoving = true;
 	private bool _IsCapturing = false;
 
@@ -47,11 +52,20 @@ public class Attacker : MonoBehaviour {
 
 		_her = GameObject.Find ("Her");
 
-		_spriteRenderer = GetComponentInChildren<SpriteRenderer> ();
+		foreach (Transform child in transform) 
+		{
+			if (child.gameObject.CompareTag("Body")){
+				_spriteRenderer = child.gameObject.GetComponent<SpriteRenderer> ();
+			}
+			else if (child.gameObject.CompareTag("HealthBar")){
+				_healthBar = child.gameObject.GetComponent<SpriteRenderer> ();
+			}
+		}
 
 		_health = GetComponent<Health> ();
+		_maxHitPoint = _health.HitPoint;
 
-		_mainGame = GameObject.Find ("MainGame").GetComponent<MainGame> ();
+		_mainGame = GameObject.FindGameObjectWithTag ("MainGame").GetComponent<MainGame> ();
 	}
 	
 	// Update is called once per frame
@@ -138,6 +152,9 @@ public class Attacker : MonoBehaviour {
 
 		_health.DealDamage (20.0f);
 
+		Vector3 healthBarScale = new Vector3 (_health.HitPoint / _maxHitPoint, _healthBar.gameObject.transform.localScale.y, _healthBar.gameObject.transform.localScale.z);
+		_healthBar.gameObject.transform.localScale = healthBarScale;
+
 		TintAttacked ();
 
 		_anim.SetTrigger ("TriggerHit");
@@ -146,6 +163,6 @@ public class Attacker : MonoBehaviour {
 	private void TintAttacked(){
 		Color c = Color.red;
 		c.a = 0.9f;
-		LeanTween.color(_spriteRenderer.gameObject, c, 0.1f).setEase(LeanTweenType.easeInOutCubic).setLoopPingPong(1);
+		LeanTween.color(_spriteRenderer.gameObject, c, 0.25f).setEase(LeanTweenType.easeInOutCubic).setLoopPingPong(1);
 	}
 }

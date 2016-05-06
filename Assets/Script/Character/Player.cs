@@ -40,7 +40,7 @@ public class Player : MonoBehaviour {
 
 		_limitBreak = GameObject.FindGameObjectWithTag ("LimitBreak").GetComponent<LimitBreak>();
 
-		_mainGame = GameObject.Find ("MainGame").GetComponent<MainGame> ();
+		_mainGame = GameObject.FindGameObjectWithTag ("MainGame").GetComponent<MainGame> ();
 
 		_BG_Object = GameObject.FindGameObjectWithTag ("GameMapController");
 		_BG_Sprite = _BG_Object.GetComponent<SpriteRenderer> ().sprite;
