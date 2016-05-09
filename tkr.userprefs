@@ -1,20 +1,29 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/WarningHUD.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/MainUI/NavButton.cs">
     <Files>
-      <File FileName="Assets/Script/Spawner.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/Character/Her.cs" Line="66" Column="2" />
-      <File FileName="Assets/LimitBreak.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/Enemy/Attacker.cs" Line="166" Column="54" />
-      <File FileName="Assets/Script/GameTimer.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/LevelManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/Character/Player.cs" Line="45" Column="68" />
-      <File FileName="Assets/Script/MoveController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/Health.cs" Line="1" Column="1" />
-      <File FileName="Assets/ParticleComp.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/InitGame.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/MusicManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/WarningHUD.cs" Line="10" Column="36" />
+      <File FileName="Assets/Script/Character/Her.cs" Line="22" Column="47" />
+      <File FileName="Assets/Script/Enemy/Attacker.cs" Line="68" Column="47" />
+      <File FileName="Assets/Script/Character/Player.cs" Line="43" Column="47" />
+      <File FileName="Assets/Script/MainGame/CameraMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/MainGame/GameTimer.cs" Line="28" Column="5" />
+      <File FileName="Assets/Script/MainGame/InitGame.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/MainGame/LimitBreak.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/MainGame/MainGame.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/MainGame/ParticleComp.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/MainGame/Shredder.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/MainGame/Soul.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/Enemy/Spawner.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/MainUI/FadeIn.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/MainUI/WarningHUD.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/Manager/LevelManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/Manager/MusicManager.cs" Line="13" Column="31" />
+      <File FileName="Assets/Script/Manager/OptionsController.cs" Line="14" Column="17" />
+      <File FileName="Assets/Script/Manager/PlayerPrefsManager.cs" Line="57" Column="29" />
+      <File FileName="Assets/Script/MainUI/SoulPointDisplay.cs" Line="23" Column="2" />
+      <File FileName="Assets/Script/MainUI/ScrollList.cs" Line="16" Column="4" />
+      <File FileName="Assets/NavButton.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/MainUI/NavButton.cs" Line="30" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

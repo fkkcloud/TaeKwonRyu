@@ -7,6 +7,8 @@ public class NavButton : MonoBehaviour {
 
 	private int scrollUICount = 3;
 
+	private int initialID = 0;
+
 	// Use this for initialization
 	void Start () {
 		lists = new GameObject[scrollUICount];
@@ -14,6 +16,11 @@ public class NavButton : MonoBehaviour {
 		lists [0] = GameObject.FindGameObjectWithTag ("Scroll01_Belt");
 		lists [1] = GameObject.FindGameObjectWithTag ("Scroll02_Upper");
 		lists [2] = GameObject.FindGameObjectWithTag ("Scroll03_Lower");
+
+		if (lists.Length != scrollUICount)
+			Debug.LogError ("scroll UI has not been initialized successfully");
+		
+		//ActiveScrollUIWithID (initialID);
 	}
 	
 	// Update is called once per frame
