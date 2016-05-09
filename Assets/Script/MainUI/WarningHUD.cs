@@ -15,6 +15,7 @@ public class WarningHUD : MonoBehaviour {
 	private Image _warningHUD;
 	private MainGame _mainGame;
 	private GameObject _her;
+	private Text _warningMsg;
 	private float _xMin;
 	private float _xMax;
 
@@ -24,6 +25,9 @@ public class WarningHUD : MonoBehaviour {
 		_current_color = _warningHUD.color;
 		_mainGame = GameObject.FindGameObjectWithTag ("MainGame").GetComponent<MainGame> ();
 		_her = GameObject.FindGameObjectWithTag ("Her");
+		_warningMsg = GetComponentInChildren<Text> ();
+		_warningMsg.text = "";
+		_warningMsg.gameObject.transform.position = new Vector3 (-100f, _warningMsg.gameObject.transform.position.y, _warningMsg.gameObject.transform.position.z);
 	}
 
 	// Update is called once per frame
@@ -32,9 +36,8 @@ public class WarningHUD : MonoBehaviour {
 		if (!_her)
 			return;
 
-		UpdateScreenSideX ();
-
 		// if she is near the edge, alarm!
+		UpdateScreenSideX ();
 		if (_xMin < _her.transform.position.x && _xMax > _her.transform.position.x) {
 			StopScreenWarning ();
 		} else {
@@ -42,6 +45,10 @@ public class WarningHUD : MonoBehaviour {
 		}
 
 		// execute coloring the warning HUD
+		AnimateWarningHUD();
+	}
+
+	void AnimateWarningHUD(){
 		if (Time.timeSinceLevelLoad < _fadeInDueTime) {
 			// fade in
 			float currentAlpha = Mathf.Clamp(Time.deltaTime / FadeInDuration, 0f, 0.7f);
@@ -68,6 +75,8 @@ public class WarningHUD : MonoBehaviour {
 		if (!_IsOnWarning) {
 			_fadeInDueTime = Time.timeSinceLevelLoad + FadeInDuration;
 			_IsOnWarning = true;
+
+			ActivateMsgWithText ("Enemy is too close to her!");
 		}
 	}
 
@@ -76,6 +85,8 @@ public class WarningHUD : MonoBehaviour {
 		_fadeInDueTime = 0;
 		_current_color.a = 0f;
 		_warningHUD.color = _current_color;
+
+		DeactivateMsg ();
 	}
 
 	public void StartScreenWarning (){
@@ -84,6 +95,8 @@ public class WarningHUD : MonoBehaviour {
 		FadeInDuration += _fadeInDueTimeOffset;
 		_fadeInDueTime = Time.timeSinceLevelLoad + FadeInDuration;
 		_IsOnScreenWarning = true;
+
+		ActivateMsgWithText ("You are too far away from her!");
 	}
 
 	public void StopScreenWarning(){
@@ -94,6 +107,8 @@ public class WarningHUD : MonoBehaviour {
 		_fadeInDueTime = 0;
 		_current_color.a = 0f;
 		_warningHUD.color = _current_color;
+
+		DeactivateMsg ();
 	}
 
 	void EndGameLose(){
@@ -105,5 +120,14 @@ public class WarningHUD : MonoBehaviour {
 
 			_mainGame.TriggerLoseCondition ();
 		}
+	}
+
+	void ActivateMsgWithText(string txt){
+		_warningMsg.text = txt;
+		LeanTween.moveLocalX (_warningMsg.gameObject, 150f, 0.2f);
+	}
+
+	void DeactivateMsg(){
+		LeanTween.moveLocalX (_warningMsg.gameObject, -100f, 0.2f);
 	}
 }

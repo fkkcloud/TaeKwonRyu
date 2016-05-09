@@ -7,9 +7,10 @@ public class Her : MonoBehaviour {
 	[Range(0.1f, 2.0f)] public float walkSpeed = 1.3f;
 
 	private GameObject _playerObject;
+	private GameObject _attackers;
 
 	private Animator _anim;
-	private WarningHUD _warningObject;
+	private WarningHUD _warningHUD;
 	private MainGame _mainGame;
 
 	private float _originalWalkSpeed;
@@ -18,8 +19,9 @@ public class Her : MonoBehaviour {
 	void Start () {
 		_playerObject = GameObject.Find ("Player");
 		_anim = GetComponent<Animator> ();
-		_warningObject = GameObject.Find ("WarningHUD").GetComponent<WarningHUD>();
+		_warningHUD = GameObject.Find ("WarningHUD").GetComponent<WarningHUD>();
 		_mainGame = GameObject.FindGameObjectWithTag ("MainGame").GetComponent<MainGame> ();
+		_attackers = GameObject.Find ("Attackers");
 
 		_originalWalkSpeed = walkSpeed;
 	}
@@ -51,9 +53,29 @@ public class Her : MonoBehaviour {
 			}
 
 		}
+
+		// see if there is any attackers near by and if there is none, call stop warning to be safe.
+		bool isAttackerNear = false;
+		foreach (Transform child in _attackers.transform) {
+			float squaredDist = Mathf.Pow (child.position.x - transform.position.x, 2) + Mathf.Pow (child.position.y - transform.position.y, 2);
+			if (squaredDist < 0.1){
+				isAttackerNear = true;
+				break;
+			}
+		}
+		if (!isAttackerNear) {
+			_warningHUD.StopWarning ();
+			walkSpeed = _originalWalkSpeed;
+		}
 	}
 		
-	void OnTriggerEnter2D(Collider2D col){
+	/* 
+	 * Using OnTriggerStay2D instead of OnTriggerEnter2D since
+	 * there could be onScreenWarning already activated and
+	 * when it is end we want to activate general attacker engage 
+	 * warning right away.
+	 * */
+	void OnTriggerStay2D(Collider2D col){
 		if (_mainGame.IsGameEnd == true)
 			return;
 
@@ -61,21 +83,24 @@ public class Her : MonoBehaviour {
 
 		if (obj.GetComponent<Attacker> ()) 
 		{
-			_warningObject.StartWarning ();
+			_warningHUD.StartWarning ();
 			walkSpeed = 0f;
 		}
 	}
 
+	/*
+	 * TriggerExit to disable warning seems to not working very precisly..!
 	void OnTriggerExit2D(Collider2D col){
 
 		GameObject obj = col.gameObject;
 
 		if (obj.GetComponent<Attacker> ()) 
 		{
-			_warningObject.StopWarning ();
+			_warningHUD.StopWarning ();
 
 			// reset the walk speed
 			walkSpeed = _originalWalkSpeed;
 		}
 	}
+	*/
 }

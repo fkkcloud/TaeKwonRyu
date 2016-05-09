@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{CE5C5882-8782-9A46-FA07-436D8196B895}") = "TaeKwonRyu", "Assembly-CSharp-firstpass.csproj", "{FD85D0B6-0543-62D1-C8C0-2A86A7DC3BC9}"
+EndProject
+Project("{CE5C5882-8782-9A46-FA07-436D8196B895}") = "TaeKwonRyu", "Assembly-CSharp.csproj", "{7F804027-5073-C999-D4B5-9A6D770917EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD85D0B6-0543-62D1-C8C0-2A86A7DC3BC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD85D0B6-0543-62D1-C8C0-2A86A7DC3BC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD85D0B6-0543-62D1-C8C0-2A86A7DC3BC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD85D0B6-0543-62D1-C8C0-2A86A7DC3BC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F804027-5073-C999-D4B5-9A6D770917EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F804027-5073-C999-D4B5-9A6D770917EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F804027-5073-C999-D4B5-9A6D770917EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F804027-5073-C999-D4B5-9A6D770917EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
