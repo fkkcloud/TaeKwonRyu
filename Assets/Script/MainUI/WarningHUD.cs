@@ -7,17 +7,23 @@ public class WarningHUD : MonoBehaviour {
 	[Tooltip ("How fast the game will end as 'her' gets collided with attackers")]
 	public float FadeInDuration;
 
-	private bool _IsOnWarning = false;
-	private bool _IsOnScreenWarning = false;
-	private float _fadeInDueTime;
-	private float _fadeInDueTimeOffset = 1.25f;
-	private Color _current_color;
+	private GameObject _her;
+
 	private Image _warningHUD;
 	private MainGame _mainGame;
-	private GameObject _her;
 	private Text _warningMsg;
+
+	private Color _warningMsgColorAlpha;
+	private Color _warningMsgColorNoAlpha;
+	private Color _current_color;
+
 	private float _xMin;
 	private float _xMax;
+
+	private float _fadeInDueTimeOriginal;
+	private float _fadeInDueTime;
+
+	private bool _IsOnWarning = false;
 
 	// Use this for initialization
 	void Start () {
@@ -26,23 +32,17 @@ public class WarningHUD : MonoBehaviour {
 		_mainGame = GameObject.FindGameObjectWithTag ("MainGame").GetComponent<MainGame> ();
 		_her = GameObject.FindGameObjectWithTag ("Her");
 		_warningMsg = GetComponentInChildren<Text> ();
+
 		_warningMsg.text = "";
-		_warningMsg.gameObject.transform.position = new Vector3 (-100f, _warningMsg.gameObject.transform.position.y, _warningMsg.gameObject.transform.position.z);
+		_warningMsgColorAlpha = _warningMsg.color;
+		_warningMsgColorNoAlpha = new Color(_warningMsg.color.r, _warningMsg.color.g, _warningMsg.color.b, 0f);
+		_warningMsg.color = _warningMsgColorNoAlpha;
 	}
 
 	// Update is called once per frame
 	void Update () {
-
 		if (!_her)
 			return;
-
-		// if she is near the edge, alarm!
-		UpdateScreenSideX ();
-		if (_xMin < _her.transform.position.x && _xMax > _her.transform.position.x) {
-			StopScreenWarning ();
-		} else {
-			StartScreenWarning ();
-		}
 
 		// execute coloring the warning HUD
 		AnimateWarningHUD();
@@ -59,19 +59,7 @@ public class WarningHUD : MonoBehaviour {
 		}
 	}
 
-	void UpdateScreenSideX(){
-		float distance = transform.position.z - Camera.main.transform.position.z;
-		Vector3 leftMost = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, distance));
-		Vector3 rightMost = Camera.main.ViewportToWorldPoint(new Vector3(1, 0, distance));
-		float offset = 0.125f;
-		_xMin = leftMost.x + offset;
-		_xMax = rightMost.x - offset;
-	}
-		
-	public void StartWarning (){
-		if (_IsOnScreenWarning)
-			return;
-		
+	public void StartWarning (){		
 		if (!_IsOnWarning) {
 			_fadeInDueTime = Time.timeSinceLevelLoad + FadeInDuration;
 			_IsOnWarning = true;
@@ -82,28 +70,6 @@ public class WarningHUD : MonoBehaviour {
 
 	public void StopWarning(){
 		_IsOnWarning = false;
-		_fadeInDueTime = 0;
-		_current_color.a = 0f;
-		_warningHUD.color = _current_color;
-
-		DeactivateMsg ();
-	}
-
-	public void StartScreenWarning (){
-		if (_IsOnScreenWarning)
-			return;
-		FadeInDuration += _fadeInDueTimeOffset;
-		_fadeInDueTime = Time.timeSinceLevelLoad + FadeInDuration;
-		_IsOnScreenWarning = true;
-
-		ActivateMsgWithText ("You are too far away from her!");
-	}
-
-	public void StopScreenWarning(){
-		if (!_IsOnScreenWarning)
-			return;
-		FadeInDuration -= _fadeInDueTimeOffset;
-		_IsOnScreenWarning = false;
 		_fadeInDueTime = 0;
 		_current_color.a = 0f;
 		_warningHUD.color = _current_color;
@@ -124,10 +90,10 @@ public class WarningHUD : MonoBehaviour {
 
 	void ActivateMsgWithText(string txt){
 		_warningMsg.text = txt;
-		LeanTween.moveLocalX (_warningMsg.gameObject, 150f, 0.2f);
+		LeanTween.colorText (_warningMsg.rectTransform, _warningMsgColorAlpha, 0.25f).setEase(LeanTweenType.easeInOutCubic);
 	}
 
 	void DeactivateMsg(){
-		LeanTween.moveLocalX (_warningMsg.gameObject, -100f, 0.2f);
+		LeanTween.colorText (_warningMsg.rectTransform, _warningMsgColorNoAlpha, 0.1f);
 	}
 }

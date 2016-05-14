@@ -26,6 +26,18 @@ public class PlayerPrefsManager : MonoBehaviour {
 	}
 
 	/// <summary>
+	/// BeltLevels
+	/// </summary>
+	public static void SetBeltLevel(int beltType, int beltLevel){
+		
+	}
+
+	public static int GetBeltLevel(int beltType){
+		return 0;
+	}
+
+
+	/// <summary>
 	/// SFX Volume
 	/// </summary>
 	public static void SetSFXVolume(int isVolumeOn){

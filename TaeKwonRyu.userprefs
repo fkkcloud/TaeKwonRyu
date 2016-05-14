@@ -1,0 +1,23 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/MainUI/ScrollList.cs">
+    <Files>
+      <File FileName="Assets/Plugins/LeanTween.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/MainUI/WarningHUD.cs" Line="43" Column="18" />
+      <File FileName="Assets/Script/Character/Her.cs" Line="68" Column="19" />
+      <File FileName="Assets/Script/Enemy/Attacker.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/Character/Player.cs" Line="58" Column="32" />
+      <File FileName="Assets/Script/MainGame/GameTimer.cs" Line="36" Column="26" />
+      <File FileName="Assets/Script/MainGame/MainGame.cs" Line="26" Column="34" />
+      <File FileName="Assets/Script/Data/Belt.cs" Line="2" Column="1" />
+      <File FileName="Assets/Script/Manager/OptionsController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/Data/Upper.cs" Line="2" Column="22" />
+      <File FileName="Assets/Script/Manager/MusicManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/MainUI/ScrollList.cs" Line="15" Column="25" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

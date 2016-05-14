@@ -3,24 +3,12 @@ using System.Collections;
 
 public class NavButton : MonoBehaviour {
 
-	private GameObject[] lists;
-
-	private int scrollUICount = 3;
-
-	private int initialID = 0;
+	private MainNavigation _mainNavigation;
 
 	// Use this for initialization
 	void Start () {
-		lists = new GameObject[scrollUICount];
+		_mainNavigation = GameObject.Find ("MainNavigation").GetComponent<MainNavigation>();
 
-		lists [0] = GameObject.FindGameObjectWithTag ("Scroll01_Belt");
-		lists [1] = GameObject.FindGameObjectWithTag ("Scroll02_Upper");
-		lists [2] = GameObject.FindGameObjectWithTag ("Scroll03_Lower");
-
-		if (lists.Length != scrollUICount)
-			Debug.LogError ("scroll UI has not been initialized successfully");
-		
-		//ActiveScrollUIWithID (initialID);
 	}
 	
 	// Update is called once per frame
@@ -29,10 +17,10 @@ public class NavButton : MonoBehaviour {
 	}
 
 	public void ActiveScrollUIWithID(int id){
-		for (int i = 0; i < scrollUICount; i++) {
-			lists [i].SetActive (false);
+		for (int i = 0; i < _mainNavigation.scrollUICount; i++) {
+			_mainNavigation.lists [i].SetActive (false);
 		}
 
-		lists [id].SetActive (true);
+		_mainNavigation.lists [id].SetActive (true);
 	}
 }

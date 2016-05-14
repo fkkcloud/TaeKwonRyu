@@ -32,11 +32,8 @@ public class GameTimer : MonoBehaviour {
 	void Update () {
 
 		int secondLeft = Mathf.RoundToInt (levelSeconds - Time.timeSinceLevelLoad);
-		int minuteLeft = Mathf.RoundToInt( levelSeconds / 60f ) - 1;
 
-		int secondToDisply =  Mathf.RoundToInt (secondLeft % 60f);
-
-		_text.text = minuteLeft.ToString() + ":" + secondToDisply.ToString();
+		_text.text = secondLeft.ToString();
 
 		bool timeIsUp = (0 >= secondLeft);
 
