@@ -1,19 +1,29 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/MainUI/BeltScrollList.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/MainGame/GameTimer.cs">
     <Files>
-      <File FileName="Assets/Script/MainUI/BeltScrollList.cs" Line="78" Column="1" />
+      <File FileName="Assets/Script/Controller/MoveController.cs" Line="42" Column="1" />
+      <File FileName="Assets/Script/MainUI/BeltScrollList.cs" Line="69" Column="19" />
       <File FileName="Assets/Plugins/LeanTween.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/MainUI/WarningHUD.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/Character/Her.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/MainUI/WarningHUD.cs" Line="69" Column="3" />
+      <File FileName="Assets/Script/Character/Her.cs" Line="23" Column="3" />
       <File FileName="Assets/Script/Enemy/Attacker.cs" Line="1" Column="1" />
       <File FileName="Assets/Script/Character/Player.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/MainGame/GameTimer.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/MainGame/MainGame.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/Data/Belt.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/MainGame/GameTimer.cs" Line="33" Column="3" />
+      <File FileName="Assets/Script/MainGame/MainGame.cs" Line="32" Column="27" />
+      <File FileName="Assets/Script/Data/Belt.cs" Line="11" Column="21" />
       <File FileName="Assets/Script/Manager/OptionsController.cs" Line="1" Column="1" />
       <File FileName="Assets/Script/Data/Upper.cs" Line="1" Column="1" />
       <File FileName="Assets/Script/Manager/MusicManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/MainGame/InitGame.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/MainGame/ParticleComp.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/MainGame/Shredder.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/MainGame/Soul.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/MainUI/WarningMsg.cs" Line="14" Column="17" />
+      <File FileName="Assets/Script/BeltBalance.json" Line="268" Column="8" />
+      <File FileName="Assets/RoomNavigator.cs" Line="19" Column="43" />
+      <File FileName="Assets/Script/Manager/LevelManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/MainGame/CameraMovement.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

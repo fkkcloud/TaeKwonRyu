@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\RoomNavigator.cs" />
      <Compile Include="Assets\Script\Character\Her.cs" />
      <Compile Include="Assets\Script\Character\Player.cs" />
      <Compile Include="Assets\Script\Controller\MoveController.cs" />
@@ -69,6 +70,7 @@
      <Compile Include="Assets\Script\MainUI\ShirtScrollList.cs" />
      <Compile Include="Assets\Script\MainUI\SoulPointDisplay.cs" />
      <Compile Include="Assets\Script\MainUI\WarningHUD.cs" />
+     <Compile Include="Assets\Script\MainUI\WarningMsg.cs" />
      <Compile Include="Assets\Script\Manager\LevelManager.cs" />
      <Compile Include="Assets\Script\Manager\MusicManager.cs" />
      <Compile Include="Assets\Script\Manager\OptionsController.cs" />

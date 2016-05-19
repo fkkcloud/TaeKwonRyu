@@ -11,11 +11,8 @@ public class WarningHUD : MonoBehaviour {
 
 	private Image _warningHUD;
 	private MainGame _mainGame;
-	private Text _warningMsg;
-
-	private Color _warningMsgColorAlpha;
-	private Color _warningMsgColorNoAlpha;
 	private Color _current_color;
+	private WarningMsg _warningMsg;
 
 	private float _xMin;
 	private float _xMax;
@@ -31,12 +28,8 @@ public class WarningHUD : MonoBehaviour {
 		_current_color = _warningHUD.color;
 		_mainGame = GameObject.FindGameObjectWithTag ("MainGame").GetComponent<MainGame> ();
 		_her = GameObject.FindGameObjectWithTag ("Her");
-		_warningMsg = GetComponentInChildren<Text> ();
+		_warningMsg = GameObject.Find ("WarningMSG").GetComponent<WarningMsg> ();
 
-		_warningMsg.text = "";
-		_warningMsgColorAlpha = _warningMsg.color;
-		_warningMsgColorNoAlpha = new Color(_warningMsg.color.r, _warningMsg.color.g, _warningMsg.color.b, 0f);
-		_warningMsg.color = _warningMsgColorNoAlpha;
 	}
 
 	// Update is called once per frame
@@ -64,7 +57,7 @@ public class WarningHUD : MonoBehaviour {
 			_fadeInDueTime = Time.timeSinceLevelLoad + FadeInDuration;
 			_IsOnWarning = true;
 
-			ActivateMsgWithText ("Enemy is too close to her!");
+			_warningMsg.ActivateMsgWithText ("Enemy is too close to her!");
 		}
 	}
 
@@ -74,26 +67,18 @@ public class WarningHUD : MonoBehaviour {
 		_current_color.a = 0f;
 		_warningHUD.color = _current_color;
 
-		DeactivateMsg ();
+		_warningMsg.DeactivateMsg ();
 	}
 
 	void EndGameLose(){
 		if (!_mainGame.IsGameEnd) {
-			_mainGame.IsGameEnd = true;
-
 			_current_color.a = 0.4f;
 			_warningHUD.color = _current_color;
 
+			_mainGame.IsGameEnd = true;
 			_mainGame.TriggerLoseCondition ();
 		}
 	}
 
-	void ActivateMsgWithText(string txt){
-		_warningMsg.text = txt;
-		LeanTween.colorText (_warningMsg.rectTransform, _warningMsgColorAlpha, 0.25f).setEase(LeanTweenType.easeInOutCubic);
-	}
 
-	void DeactivateMsg(){
-		LeanTween.colorText (_warningMsg.rectTransform, _warningMsgColorNoAlpha, 0.1f);
-	}
 }

@@ -8,10 +8,13 @@ public class MainGame : MonoBehaviour {
 	public bool IsGameEnd = false;
 
 	private GameObject _her;
+	private LevelManager _levelManager;
 
 	// Use this for initialization
 	void Start () {
 		_her = GameObject.FindGameObjectWithTag ("Her");
+		_levelManager = GameObject.FindObjectOfType<LevelManager> ();
+
 	}
 	
 	// Update is called once per frame
@@ -26,6 +29,7 @@ public class MainGame : MonoBehaviour {
 	public void TriggerLoseCondition(){
 		AllocateFXHerDisappear ();
 		Destroy (_her, 0.2f);
+		Invoke ("ReloadLevel", 3.0f/*_audioSource.clip.length*/);
 	}
 
 	public void TriggerWinCondition(){
@@ -37,5 +41,9 @@ public class MainGame : MonoBehaviour {
 		Vector3 FXPos = new Vector3(_her.transform.position.x, _her.transform.position.y, _her.transform.position.z);
 		fx.transform.position = FXPos;
 		Destroy (fx, 0.5f);
+	}
+
+	void ReloadLevel(){
+		_levelManager.LoadLevel("01c_Room");
 	}
 }

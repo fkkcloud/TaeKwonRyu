@@ -19,24 +19,33 @@ public class BeltScrollList : MonoBehaviour {
 		int id = 0;
 		foreach (Transform child in transform.GetChild(0)) {
 
-			// get all the text comps in each item in the scroll list
+			// get elements to update for this child
+			Text levelTextUI = null;
+			Text atkTextUI = null;
+			Text costTextUI = null;
+			Text itemNameTextUI = null;
+			Image itemImageUI = null;
+
 			Text[] textUIs = child.gameObject.GetComponentsInChildren<Text> ();
 			for (int i = 0; i < textUIs.Length; i++) {
-				
 				if (textUIs [i].tag == "UI_Slot_Level") {
-					textUIs [i].text = _balanceDatas [i].level.ToString() + "/10"; 
+					levelTextUI = textUIs [i];
 				} else if (textUIs [i].tag == "UI_Slot_ATK") {
-					textUIs [i].text = _balanceDatas [i].damages [_balanceDatas [i].level].ToString();
+					atkTextUI = textUIs [i];
 				} else if (textUIs [i].tag == "UI_Slot_Cost") {
-					textUIs [i].text = _balanceDatas [i].costs [_balanceDatas [i].level].ToString();
+					costTextUI = textUIs [i];
 				} else if (textUIs [i].tag == "UI_Slot_ItemName") {
-					textUIs [i].text = _balanceDatas [i].itemname;
+					itemNameTextUI = textUIs [i];
 				}
-
+			}
+			Image[] imageUIs = child.gameObject.GetComponentsInChildren<Image> ();
+			for (int i = 0; i < imageUIs.Length; i++) {
+				if (imageUIs [i].tag == "UI_Slot_ItemImage") {
+					itemImageUI = imageUIs [i];
+					break;
+				}
 			}
 
-
-			Text itemNameUI = child.gameObject.GetComponentInChildren<Text> ();
 
 			if (textAsset && items.Length > id && _balanceDatas.Length > id) {
 
@@ -46,7 +55,18 @@ public class BeltScrollList : MonoBehaviour {
 				items [id].costs = _balanceDatas [id].costs;
 				items [id].damages = _balanceDatas [id].damages;
 
-				itemNameUI.text = items [id].itemname;
+				// update ui elements
+				int currentLevel = items [id].level;
+
+				levelTextUI.text = currentLevel.ToString() + "/10"; 
+
+				atkTextUI.text = items[id].damages[currentLevel].ToString();
+
+				costTextUI.text = items[id].costs[currentLevel].ToString();
+
+				itemImageUI.color = items [id].color;
+
+				itemNameTextUI.text = items [id].itemname;
 			}
 
 			id++;

@@ -12,7 +12,7 @@ public class MoveController : MonoBehaviour {
 
 	private GameObject _player;
 
-	private Image _panel;
+	private Image _highlight;
 	private Color _current_color;
 
 	// Use this for initialization
@@ -20,10 +20,13 @@ public class MoveController : MonoBehaviour {
 
 		_player = GameObject.Find ("Player");
 
-		_panel = GetComponent<Image> ();
+		foreach (Transform child in transform) {
+			_highlight = child.gameObject.GetComponent<Image> ();
+		}
 
-		_current_color = _panel.color;
+		_current_color = _highlight.color;
 		_current_color.a = 0f;
+		_highlight.color = _current_color;
 	}
 	
 	// Update is called once per frame
@@ -32,19 +35,19 @@ public class MoveController : MonoBehaviour {
 			// fade in
 			float currentAlpha = Time.deltaTime / _fadeInDelta;
 			_current_color.a -= currentAlpha;
-			_panel.color = _current_color;
+			_highlight.color = _current_color;
 		}
 	}
 
 	void OnMouseDown(){
 
-		Player playerComp = _player.GetComponent<Player> ();
-		if (playerComp) {
-			playerComp.SetDirection(side);
-			playerComp.TriggerMove ();
+		Player player = _player.GetComponent<Player> ();
+		if (player) {
+			player.SetDirection(side);
+			player.TriggerMove ();
 
 			_current_color.a = 1f;
-			_panel.color = _current_color;
+			_highlight.color = _current_color;
 			_fadeInDuration = Time.timeSinceLevelLoad + _fadeInDelta;
 		}
 		
